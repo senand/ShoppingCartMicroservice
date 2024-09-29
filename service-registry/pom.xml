@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.anand</groupId>
 	<artifactId>service-registry</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>service-registry</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -50,6 +50,20 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<from>
+						<image>openjdk:11</image>
+					</from>
+					<to>
+						<image>registry.hub.docker.com/anandamcs/serviceregistry</image>
+						<tags>${project.version}</tags>
+					</to>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

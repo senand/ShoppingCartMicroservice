@@ -11,16 +11,8 @@ spring:
   application:
     name: PRODUCT-SERVICE
   config:
-    import: configserver:http://localhost:9296
+    import: configserver:http://${CONFIG_SERVER_URL:localhost}:9296
 
 server:
   port: 8080
 
-#eureka:
-#  instance:
-#    prefer-ip-address: true
-#  client:
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}

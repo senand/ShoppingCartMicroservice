@@ -37,7 +37,8 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public PaymentResponse getPaymentDetailsByOrderId(long orderId) {
         log.info("Getting Payment Details for the Order Id: {}",orderId);
-        TransactionDetails transactionDetails = transactionDetailsrepository.findByOrderId(orderId);
+        log.info("Getting All Payment Details for the Order Id: {}",transactionDetailsrepository.findAll());
+        TransactionDetails transactionDetails = transactionDetailsrepository.findByOrderId(Long.valueOf(orderId));
         PaymentResponse paymentResponse = PaymentResponse.builder()
                 .paymentId(transactionDetails.getId())
                 .paymentMode(PaymentMode.valueOf(transactionDetails.getPaymentMode()))

@@ -75,13 +75,13 @@ public class    OrderServiceImpl implements OrderService{
 
        log.info("Invoking ProductService to get Product Details for productId: {}",order.getProductId());
         ProductResponse productResponse=
-                restTemplate.getForObject("http://localhost:8080/product/"+order.getProductId(),
+                restTemplate.getForObject("http://PRODUCT-SERVICE/product/"+order.getProductId(),
                         ProductResponse.class);
 
         log.info("Getting Payment information from Payment Service");
 
         PaymentResponse paymentResponse=
-                restTemplate.getForObject("http://localhost:8081/payment/order/"+order.getId(),
+                restTemplate.getForObject("http://PAYMENT-SERVICE/payment/order/"+order.getId(),
                         PaymentResponse.class);
 
         OrderResponse.ProductDetails productDetails = OrderResponse.ProductDetails.builder()
